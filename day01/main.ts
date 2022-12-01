@@ -1,13 +1,14 @@
 import { readLines } from 'https://deno.land/std@0.167.0/io/buffer.ts';
 
 const allCalories: number[] = [];
-let currentCalories = 0;
 
 // const file = await Deno.open('./sample_input.txt');
 const file = await Deno.open('./input.txt');
-for await (const l of readLines(file)) {
-  if (l) {
-    const calorie = Number(l);
+
+let currentCalories = 0;
+for await (const line of readLines(file)) {
+  if (line) {
+    const calorie = Number(line);
     currentCalories += calorie;
   } else {
     allCalories.push(currentCalories);
